@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "name": "iconography-optimize",
+  "main": "index.js",
+  "bin": {
+    "lint-staged": "./bin/index.js"
+  },
+  "scripts": {},
+  "author": "SEE CONTRIBUTORS",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^14",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "@squoosh/cli": "^0.7.2",
+    "@squoosh/lib": "^0.4.0",
+    "argv": "^0.0.2",
+    "glob": "^7.1.6",
+    "shelljs": "^0.8.4"
+  },
+  "peerDependencies": {
+    "@squoosh/cli": "^0.6.3",
+    "shelljs": "^0.8.4"
+  }
+}
