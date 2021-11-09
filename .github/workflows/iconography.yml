@@ -1,0 +1,57 @@
+name: iconography
+
+on:
+  push:
+    paths:
+      - "**.png"
+      - ".github/workflows/iconography.yml"
+
+  pull_request_target:
+    branches:
+    - main
+    - develop
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request_target' && github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+
+env:
+  CI: true
+  COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+  PULL_NUMBER: ${{ github.event.pull_request.number }}
+  RUN_ID: ${{ github.run_id }}
+  FORCE_COLOR: 2
+
+jobs:
+  iconography:
+    runs-on: ubuntu-latest
+#    outputs:
+#      iconography_COVERAGE: ${{ steps.iconography-analysis.outputs.iconography_COVERAGE }}
+      
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["14.x"]
+        os: ["ubuntu-latest"]
+    steps:
+      - uses: actions/checkout@v2
+      - name: install
+        id: analysis
+        shell: bash
+        run: |
+          sudo apt-get install libtool automake autoconf nasm libpng pkg-config
+  
+      - name: Nodejs 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+          check-latest: true
+          always-auth: true
+          registry-url: https://registry.npmjs.org
+#          cache: 'yarn' dont cache for this workflow
+
+      - name: Install
+        id: compile
+        run: |
+          yarn install
