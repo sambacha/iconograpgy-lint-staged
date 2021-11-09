@@ -1,14 +1,14 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "iconography-optimize",
   "main": "index.js",
   "bin": {
-    "lint-staged": "./bin/index.js"
+    "iconography-optimize": "bin/index.js"
   },
   "scripts": {},
   "author": "SEE CONTRIBUTORS",
   "license": "MIT",
-  "description": "",
+  "description": "> designed for lint-staged usage with sensible defaults",
   "devDependencies": {
     "@types/node": "^14",
     "prettier": "^2.4.1"
@@ -23,5 +23,14 @@
   "peerDependencies": {
     "@squoosh/cli": "^0.6.3",
     "shelljs": "^0.8.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sambacha/iconograpgy-optimize.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/sambacha/iconograpgy-optimize/issues"
+  },
+  "homepage": "https://github.com/sambacha/iconograpgy-optimize#readme"
 }
